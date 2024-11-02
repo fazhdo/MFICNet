@@ -33,13 +33,19 @@ mmdetection-2.24.1:
 unzip mmdetection-2.24.1.zip
 cd mmdetection-2.24.1
 pip install .
+
 mmdetection3d-1.0.0rc4:
+unzip mmdetection3d-1.0.0rc4.zip
 cd mmdetection3d-1.0.0rc4
 pip install .
+
 mmsegmentation-0.24.0:
+unzip mmsegmentation-0.24.0.zip
 cd mmsegmentation-0.24.0
 pip install .
+
 mmclassification-v0.23.1:
+unzip mmclassification-v0.23.1.zip
 cd mmclassification-v0.23.1
 pip install .
 ```
