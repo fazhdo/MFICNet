@@ -9,9 +9,10 @@ As a crucial technology in numerous visual applications, visual localization has
 
 * Create environment:
   
-
-    conda create -n MFICNet python=3.7
-    conda activate MFICNet
+```python
+conda create -n MFICNet python=3.7
+conda activate MFICNet
+```
 
 * Install torch:
   
