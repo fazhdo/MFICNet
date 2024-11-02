@@ -1,7 +1,7 @@
 # MFICNet
-
+MFICNet: A Multi-modality Fusion Network with Information Compensation for Accurate Indoor Visual Localization
 # Highlights
-
+As a crucial technology in numerous visual applications, visual localization has been extensively studied, with an effective solution known as scene coordinate regression (SCoRe). Generally, SCoRe methods generate scene coordinates using convolutional neural networks (CNNs) and then determine the camera pose with a PnP algorithm. While these methods demonstrate impressive localization accuracy, they primarily rely on a single modality, e.g., RGB camera, which leads to texture dependency and structural ambiguity problems. Specifically, perceptual confusion caused by similar image textures in real indoor scenes causes a severe decline in localization accuracy, as the performance of the networks heavily depends on the semantic information of objects. Additionally, current methods struggle to robustly recover structural details of objects because RGB images lack 3D geometric structural information. We believe that these two issues stem from the inherent limitations of single-modality. There is potential for complementarity between semantic and structural information. Towards this end, we propose MFICNet, a novel visual localization network that investigates the feasibility of simultaneously utilizing RGB and depth images to achieve accurate visual localization. Technically, MFICNet employs a heterogeneous backbone to extract features from RGB images and depth images separately. The structural feature obtained from depth images enhances the identifiability of similar image patches and imposes structural constraints for scene coordinates. After that, an information compensation module is introduced to evaluate the contributions of semantic and structural features and perform deep fusion to generate discriminative features.
 # Environment Setup
 
 # Data Preparation
