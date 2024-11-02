@@ -16,20 +16,20 @@ conda activate MFICNet
 
 * Install torch:
   
-'''python
+```python
 conda create -n MFICNet python=3.7
 conda activate MFICNet
-'''
+```
 
 * Dependencies:
   
 MFICNet is built based on [openmmlab](https://github.com/open-mmlab).
-'''python
+```python
 mmcv:
 pip install mmcv==1.6.2 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10/index.html
-'''
+```
 Download source code from: [mmdetection-2.24.1](https://github.com/open-mmlab/mmdetection), [mmdetection3d-1.0.0rc4](https://github.com/open-mmlab/mmdetection3d), and [mmsegmentation-0.24.0](https://github.com/open-mmlab/mmsegmentation), [mmclassification-v0.23.1](https://github.com/open-mmlab?q=&type=all&language=&sort=).
-'''python
+```python
 mmdetection-2.24.1:
 unzip mmdetection-2.24.1.zip
 cd mmdetection-2.24.1
@@ -43,20 +43,20 @@ pip install .
 mmclassification-v0.23.1:
 cd mmclassification-v0.23.1
 pip install .
-'''
+```
 
 Enter the file path: mmclassification-v0.23.1\mmcls, copy the code file to the corresponding location.
 
 * Training
   
-'''python
+```python
 CUDA_VISIBLE_DEVICES=0,1,2,3 bash /tools/dist_train.sh ./configs/fdanet/SERVER.py 4 --work-dir path/to/save/weights/
-'''
+```
 * Inference
   
-'''python
+```python
 CUDA_VISIBLE_DEVICES=0 python /tools/test.py ./configs/fdanet/XXX.py /path/to/checkpoints/ --metrics accuracy
-'''
+```
 
 # Data Preparation
 We utilize two standard datasets (i.e, 7-Scenes and STIVL) to evaluate our method.
