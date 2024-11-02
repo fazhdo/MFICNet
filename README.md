@@ -63,6 +63,9 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 bash /tools/dist_train.sh ./configs/fdanet/SERVER.p
 CUDA_VISIBLE_DEVICES=0 python /tools/test.py ./configs/fdanet/XXX.py /path/to/checkpoints/ --metrics accuracy
 ```
 
+# Model weights
+We released the weights trained on the 7scenes dataset [here](https://drive.google.com/drive/folders/1dT8gxLmqWeMtdMkLEv1GGUsEI4xmeyDl?usp=sharing).
+
 # Data Preparation
 We utilize two standard datasets (i.e, 7-Scenes and STIVL) to evaluate our method.
 * 7-Scenes: The 7-Scenes dataset can be downloaded from [7-Scenes](https://www.microsoft.com/en-us/research/project/rgb-d-dataset-7-scenes/).
