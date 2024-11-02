@@ -3,6 +3,51 @@ MFICNet: A Multi-modality Fusion Network with Information Compensation for Accur
 # Highlights
 As a crucial technology in numerous visual applications, visual localization has been extensively studied, with an effective solution known as scene coordinate regression (SCoRe). Generally, SCoRe methods generate scene coordinates using convolutional neural networks (CNNs) and then determine the camera pose with a PnP algorithm. While these methods demonstrate impressive localization accuracy, they primarily rely on a single modality, e.g., RGB camera, which leads to texture dependency and structural ambiguity problems. Specifically, perceptual confusion caused by similar image textures in real indoor scenes causes a severe decline in localization accuracy, as the performance of the networks heavily depends on the semantic information of objects. Additionally, current methods struggle to robustly recover structural details of objects because RGB images lack 3D geometric structural information. We believe that these two issues stem from the inherent limitations of single-modality. There is potential for complementarity between semantic and structural information. Towards this end, we propose MFICNet, a novel visual localization network that investigates the feasibility of simultaneously utilizing RGB and depth images to achieve accurate visual localization. Technically, MFICNet employs a heterogeneous backbone to extract features from RGB images and depth images separately. The structural feature obtained from depth images enhances the identifiability of similar image patches and imposes structural constraints for scene coordinates. After that, an information compensation module is introduced to evaluate the contributions of semantic and structural features and perform deep fusion to generate discriminative features.
 # Environment Setup
+* Create environment:
+'''python
+conda create -n MFICNet python=3.7
+conda activate MFICNet
+'''
+
+* Install torch:
+'''python
+conda create -n MFICNet python=3.7
+conda activate MFICNet
+'''
+
+* Dependencies:
+MFICNet is built based on [openmmlab](https://github.com/open-mmlab).
+'''python
+mmcv:
+pip install mmcv==1.6.2 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10/index.html
+'''
+Download source code from: [mmdetection-2.24.1](https://github.com/open-mmlab/mmdetection), [mmdetection3d-1.0.0rc4](https://github.com/open-mmlab/mmdetection3d), and [mmsegmentation-0.24.0](https://github.com/open-mmlab/mmsegmentation), [mmclassification-v0.23.1](https://github.com/open-mmlab?q=&type=all&language=&sort=).
+'''python
+mmdetection-2.24.1:
+unzip mmdetection-2.24.1.zip
+cd mmdetection-2.24.1
+pip install .
+mmdetection3d-1.0.0rc4:
+cd mmdetection3d-1.0.0rc4
+pip install .
+mmsegmentation-0.24.0:
+cd mmsegmentation-0.24.0
+pip install .
+mmclassification-v0.23.1:
+cd mmclassification-v0.23.1
+pip install .
+'''
+
+Enter the file path: mmclassification-v0.23.1\mmcls, copy the code file to the corresponding location.
+
+* Training
+'''python
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash /tools/dist_train.sh ./configs/fdanet/SERVER.py 4 --work-dir path/to/save/weights/
+'''
+* Inference
+'''python
+CUDA_VISIBLE_DEVICES=0 python /tools/test.py ./configs/fdanet/XXX.py /path/to/checkpoints/ --metrics accuracy
+'''
 
 # Data Preparation
 We utilize two standard datasets (i.e, 7-Scenes and STIVL) to evaluate our method.
